@@ -1,0 +1,24 @@
+﻿body {
+    padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+}
+
+.cartao {
+    width: 230px;
+    height: 200px;
+    padding: 0.5em;
+    background: yellow;
+    cursor: move;
+    font-size: small;
+}
+
+.pendencia {
+    color: #f00;
+}
+
+.solicitacao {
+    color: #0094ff;
+}
+
+.melhoria {
+    color: #33a811;
+}
