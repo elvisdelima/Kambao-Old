@@ -5,9 +5,9 @@ using System.Web;
 
 namespace Kambao.Models
 {
-    public class Tarefas
+    public class Tarefa
     {
-        public virtual long Id { get; set; }
+        public virtual int Id { get; set; }
         public virtual string Codigo { get; set; }
         public virtual string Descricao { get; set; }
     }

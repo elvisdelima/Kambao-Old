@@ -1,0 +1,162 @@
+﻿body {
+    padding-top: 60px; 
+}
+/*
+.card {
+    width: 230px;
+    height: 200px;
+    padding: 0.5em;
+    background: yellow;
+    cursor: move;
+    font-size: small;
+}*/
+
+.pendencia {
+    color: #f00;
+}
+
+.solicitacao {
+    color: #0094ff;
+}
+
+.melhoria {
+    color: #33a811;
+}
+
+/*  */
+
+div#contenid{
+	font:12px "Helvetica", sans-serif; 
+	/*width:980px;		*/
+	margin:0 auto;		
+}
+body{
+    background-color: white; /*#236B8E;*/
+}
+div.faixa{		
+	background-color: #fff;
+	/*background-color: #E6E8FA;*/
+	text-align:center;
+	/*border-radius: 10px;*/
+}	
+div.card{
+	border:2px solid #FFFF99;
+	margin:4px!important;
+	background-color: yellow;
+	/*background: -webkit-gradient(linear, left top, right top, from(#FFFF00), to(#FFFFFF));*/
+	border-radius: 4px;
+}
+div.cardHeader{
+	/*display: block;*/
+	padding: 9.5px;
+	margin: 0 0 10px;
+/*		font-size: 13px;
+	line-height: 20px;
+	word-break: break-all;
+	word-wrap: break-word;
+	white-space: pre;
+	white-space: pre-wrap;*/
+	border: 1px solid #CCC;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+		
+	/*width: 175px;*/
+	height: 15px;
+	background-color: whiteSmoke; 
+}
+div.tag1{				
+	/*margin:4px!important;*/
+	/*background-color:red;	*/
+	width: 20px;
+	height: 20px;
+	float: left;
+	cursor: help;
+}
+
+div.tag2{		
+	/*margin:4px!important;
+	background-color:green;*/
+	width: 20px;
+	height: 20px;
+	float: left;
+	cursor: help;
+}
+
+div.tag3{		
+	/*margin:4px!important;
+	background-color:blue;*/
+	width: 20px;
+	height: 20px;
+	float: left;
+	cursor: help;
+}
+small{
+	text-align: left;;
+}
+ul{
+	list-style:square;
+}
+ul li{
+	border-bottom:1px dotted silver;
+	padding:4px;
+}
+h1{
+	text-align:center;
+	color: #fff;
+}
+h2{
+	text-align: left;
+	cursor:move!important;
+	/*background-color: #FFFF00;*/
+	color: black;
+	padding:10px;
+	font-size:12px;
+	border-radius: 2px;
+}
+h2 span{
+	float:right;
+	font-size:11px;
+	font-weight:normal;
+	padding:1px;
+}
+h2 span a{
+	color:#fff;
+	text-decoration:none;
+}
+div#drop-um,div#drop-dois,div#drop-tres,div#drop-quatro,div#drop-cinco,div#drop-seis{
+	/*width:250px;*/
+	width: 16%;
+	height:800px;
+	min-width:157px;
+	float:left;
+	min-height:30px; 
+	border-left:solid 2px #666666; /* #F0F7F9;*/
+	border-right:solid 2px #666666; /* #F0F7F9;*/
+	border-bottom:solid 2px #666666; /* #F0F7F9;*/		
+	border-top:solid 2px #666666; /* #F0F7F9;*/		
+	margin-left: 1px;
+	margin-right: 1px;
+}
+.dragHelper{
+	border:4px dashed #F0F7F9;
+	min-height:100px;
+	margin:4px;
+}
+.card p small{
+	display:block;
+	margin-top:6px;
+}	
+.card p a{
+	font-weight:900;
+	text-decoration:none;
+	border-bottom:1px dotted blue;
+}
+div#voltar{
+	text-align:center;
+	border: 1px dotted silver;
+	width:960px;
+	margin:0 auto;
+	padding:4px;
+}

@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Kambao.Models.Tarefas>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tarefas</h2>
+
+<ol>
+@foreach (var tarefa in Model)
+{
+        <li>@tarefa.Codigo</li>
+        <li>@tarefa.Descricao</li>
+}
+</ol>
+
