@@ -27,6 +27,24 @@ namespace Kambao.Controllers
             
             return View(tarefas);
         }
+        
+        public ActionResult Create()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        public ActionResult Create(Tarefa tarefa)
+        {
+            var fluentNh = new AutoMapper();
+            var factory = fluentNh.GetSessionFactory();
+            var session = factory.OpenSession();
+
+            CurrentSessionContext.Bind(session);
+
+            session.Save(tarefa);
+
+            return RedirectToAction("Index");
+        }
     }   
 }

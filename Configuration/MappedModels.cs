@@ -1,7 +1,7 @@
 ﻿using FluentNHibernate.Automapping;
 using System;
 
-namespace Kambao.Models
+namespace Kambao.Configuration
 {
     public class MappedModels : DefaultAutomappingConfiguration
     {

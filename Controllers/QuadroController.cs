@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Kambao.Configuration;
+using Kambao.Models;
+using NHibernate.Context;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +13,17 @@ namespace Kambao.Controllers
     {        
         public ActionResult Index()
         {
-            return View();
+            var fluentNh = new AutoMapper();
+            var factory = fluentNh.GetSessionFactory();
+            var session = factory.OpenSession();
+
+            CurrentSessionContext.Bind(session);
+
+            var tarefas = session.CreateCriteria<Tarefa>()
+                //.Add(Restrictions.Eq("Nome", "Ojuara"))
+                .List<Tarefa>();
+
+            return View(tarefas);
         }
 
     }

@@ -184,6 +184,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Tarefas\Index.cshtml" />
     <Content Include="Views\Quadro\Index.cshtml" />
+    <Content Include="Views\Tarefas\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
