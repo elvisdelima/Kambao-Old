@@ -4,21 +4,6 @@
     ViewBag.Title = "Index";
 }
 
-<!--
-<div class="card solicitacao">
-    <b>S2012010408204</b>
-    <p>Criar controle de tarefas(solicitações, pendências e melhorias)</p>
-</div>
-<div class="card pendencia">
-    <b>P2012050464243</b>
-    <p>Não está sendo possível copiar o conteúdo dos cartões</p>
-</div>
-<div class="card melhoria">
-    <b>M2012010404111</b>
-    <p>Criar quadro KANBAN com faixas configuráveis</p>
-</div>
--->
-
     <div id="drop-um" class="faixa" > Previsto
          @foreach (var tarefa in Model) 
         {
@@ -27,48 +12,9 @@
 			    <p>@tarefa.Descricao</p>
 		    </div>
         }
-
-<!--		<div id="assinados" class="card solicitacao">
-			<h2>
-				20120900322 
-			</h2>		
-			<p>As férias coletivas quando é de um mês para outro os valores de licença remunerada estão divergentes na base de cálculo de um mês para outro. Nubiana ciente do assunto e tem banco de dados.<small>Início: 27/01/2013 08:05</small><small>Fim: 29/01/2013 18:40</small></p>
-		</div>
-
-		<div id="debates" class="card pendencia">			
-			<h2>
-				Debates mais polêmicos
-			</h2>	
-			<p>Majoramento da pena de políticos corruptos<small>8 comentários - 4 apoiaram </small></p>				
-		</div>
-		<div id="majoramento" class="card melhoria">			
-			<h2>
-				Movimento Contábil RMS				
-			</h2>	
-			<p>Gerar arquivo no layout Importação de Movimento Contábil RMS - V65.<small>8 comentários - 4 apoiaram </small></p>				
-		</div>-->
 	</div>
 	
 	<div id="drop-dois" class="faixa"> Desenvolvimento
-	<!--	<div id="perfis" class="card pendencia">
-			<h2>
-				Perfis cadastrados
-			</h2>
-			<p>Bruno Magrani de Souza<small>Rio de Janeiro - Rio de Janeiro</small></p>		
-		</div>
-	
-		<div id="blog" class="card solicitacao">
-			<h2>
-				Democracia blog
-			</h2>
-			<p>Esboçando a inclusão digital... <small>06/08/2007 13:47</small></p>		
-		</div>
-		<div id="other" class="card solicitacao">
-			<h2>
-				Other
-			</h2>		
-			<p>Bla bla bla... <small>06/08/2007 13:47</small></p>		
-		</div>	-->	
 	</div>
 	<div id="drop-tres" class="faixa"> Homologação </div>
 	<div id="drop-quatro" class="faixa"> Beta teste </div>

@@ -125,6 +125,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Configuration\AutoMapper.cs" />
     <Compile Include="Configuration\MappingOverrides\OverrideTarefa.cs" />
+    <Compile Include="Controllers\FaixasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QuadroController.cs" />
     <Compile Include="Controllers\TarefasController.cs" />
@@ -132,8 +133,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Configuration\MappedModels.cs" />
+    <Compile Include="Models\Faixa.cs" />
     <Compile Include="Models\Tarefa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SessionLifeCycle.cs" />
+    <Compile Include="SessionProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -185,6 +189,8 @@
     <Content Include="Views\Tarefas\Index.cshtml" />
     <Content Include="Views\Quadro\Index.cshtml" />
     <Content Include="Views\Tarefas\Create.cshtml" />
+    <Content Include="Views\Faixas\Index.cshtml" />
+    <Content Include="Views\Faixas\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

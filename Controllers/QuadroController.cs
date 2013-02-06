@@ -13,14 +13,9 @@ namespace Kambao.Controllers
     {        
         public ActionResult Index()
         {
-            var fluentNh = new AutoMapper();
-            var factory = fluentNh.GetSessionFactory();
-            var session = factory.OpenSession();
-
-            CurrentSessionContext.Bind(session);
+            var session = SessionProvider.CurrentSession;
 
             var tarefas = session.CreateCriteria<Tarefa>()
-                //.Add(Restrictions.Eq("Nome", "Ojuara"))
                 .List<Tarefa>();
 
             return View(tarefas);

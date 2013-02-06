@@ -1,8 +1,6 @@
 ﻿using Kambao.Configuration;
 using Kambao.Models;
 using NHibernate.Context;
-using NHibernate.Criterion;
-using NHibernate.Transform;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,16 +9,15 @@ using System.Web.Mvc;
 
 namespace Kambao.Controllers
 {
-    public class TarefasController : Controller
-    {        
+    public class FaixasController : Controller
+    {
         public ActionResult Index()
         {
             var session = SessionProvider.CurrentSession;
-
-            var tarefas = session.CreateCriteria<Tarefa>()
-                .List<Tarefa>();
-            
-            return View(tarefas);
+            var faixas = session.CreateCriteria<Faixa>()
+                .List<Faixa>();
+         
+            return View(faixas);
         }
         
         public ActionResult Create()
@@ -29,12 +26,12 @@ namespace Kambao.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Tarefa tarefa)
+        public ActionResult Create(Faixa faixa)
         {
             var session = SessionProvider.CurrentSession;
-            session.Save(tarefa);
+            session.Save(faixa);
 
             return RedirectToAction("Index");
         }
-    }   
+    }
 }
