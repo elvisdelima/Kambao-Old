@@ -10,5 +10,6 @@ namespace Kambao.Models
         public virtual int Id { get; set; }
         public virtual string Codigo { get; set; }
         public virtual string Descricao { get; set; }
+        public virtual Faixa faixa { get; set; }
     }
 }

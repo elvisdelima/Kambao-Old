@@ -1,6 +1,7 @@
 ﻿using Kambao.Configuration;
 using Kambao.Models;
 using NHibernate.Context;
+using Restfulie.Server.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +15,16 @@ namespace Kambao.Controllers
         public ActionResult Index()
         {
             var session = SessionProvider.CurrentSession;
-
+                        
             var tarefas = session.CreateCriteria<Tarefa>()
                 .List<Tarefa>();
+            var faixas = session.CreateCriteria<FaixasController>()
+                .List<Faixa>();
 
-            return View(tarefas);
+            var quadro = new Quadro(tarefas, faixas);
+            
+
+            return View(quadro);
         }
 
     }

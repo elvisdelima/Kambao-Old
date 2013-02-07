@@ -32,6 +32,11 @@ namespace Kambao.Controllers
         public ActionResult Create(Tarefa tarefa)
         {
             var session = SessionProvider.CurrentSession;
+
+            tarefa.faixa = new Faixa();
+            tarefa.faixa.Id = 1;
+            //tarefa.faixa.Id = 1;
+
             session.Save(tarefa);
 
             return RedirectToAction("Index");
