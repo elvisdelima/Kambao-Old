@@ -15,15 +15,16 @@ namespace Kambao.Controllers
         public ActionResult Index()
         {
             var session = SessionProvider.CurrentSession;
-                        
-            var tarefas = session.CreateCriteria<Tarefa>()
-                .List<Tarefa>();
+
             var faixas = session.CreateCriteria<FaixasController>()
-                .List<Faixa>();
-
-            var quadro = new Quadro(tarefas, faixas);
+               .List<Faixa>() as List<Faixa>;
+            var tarefas = session.CreateCriteria<Tarefa>()
+                .List<Tarefa>() as List<Tarefa>;
+           
+            Quadro quadro = new Quadro();
+            quadro.faixas = faixas;            
+            quadro.tarefas = tarefas;
             
-
             return View(quadro);
         }
 

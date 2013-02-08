@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Kambao.Models.Tarefa>
+﻿@model Kambao.Models.Quadro
 
 @{
     ViewBag.Title = "Index";
@@ -7,10 +7,9 @@
 <script type="text/javascript">
 
 </script>
-
     <div id="drop-um" class="faixa" > Previsto
-         @foreach (var tarefa in Model) 
-        {
+        @foreach (var tarefa in Model.tarefas) 
+        {        
             <div id="@tarefa.Id" class="card solicitacao">
 			    <h2>@tarefa.Codigo</h2>		
 			    <p>@tarefa.Descricao</p>

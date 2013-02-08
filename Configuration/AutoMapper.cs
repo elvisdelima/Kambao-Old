@@ -16,7 +16,7 @@ namespace Kambao.Configuration
 
             //var conventions = AutoMap.AssemblyOf<Tarefa>(new MappedModels());
                 
-            var conventions = AutoMap.Assemblies(new MappedModels(), typeof(Tarefa).Assembly);
+            var conventions = AutoMap.Assemblies(new MappedModels(), typeof(Tarefa).Assembly).IgnoreBase<Quadro>();
             //conventions.Override(typeof(MappingOverrides.OverrideTarefa));
 
             var factory = Fluently.Configure()
