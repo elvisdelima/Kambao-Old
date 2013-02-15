@@ -1,5 +1,5 @@
-﻿using Kambao.Configuration;
-using Kambao.Models;
+﻿using Kambao.Data.Configuration;
+using Kambao.Core;
 using NHibernate.Context;
 using Restfulie.Server.Results;
 using System;
@@ -16,7 +16,7 @@ namespace Kambao.Controllers
         {
             var session = SessionProvider.CurrentSession;
 
-            var faixas = session.CreateCriteria<FaixasController>()
+            var faixas = session.CreateCriteria<Faixa>()
                .List<Faixa>() as List<Faixa>;
             var tarefas = session.CreateCriteria<Tarefa>()
                 .List<Tarefa>() as List<Tarefa>;

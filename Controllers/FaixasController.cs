@@ -1,6 +1,8 @@
-﻿using Kambao.Configuration;
-using Kambao.Models;
+﻿using Kambao.Data.Configuration;
+using Kambao.Core;
+using Kambao.Data;
 using NHibernate.Context;
+using Restfulie.Server;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +11,21 @@ using System.Web.Mvc;
 
 namespace Kambao.Controllers
 {
-    public class FaixasController : Controller
+    [ActAsRestfulie]
+    public class FaixasController : CrudController<Faixa>
     {
+        public FaixasController()
+        {
+
+        }
+
+        public FaixasController(CrudData<Faixa> data)
+            : base(data)
+        {
+        }
+    }
+
+        /*
         public ActionResult Index()
         {
             var session = SessionProvider.CurrentSession;
@@ -33,5 +48,6 @@ namespace Kambao.Controllers
 
             return RedirectToAction("Index");
         }
-    }
+         */
+    
 }

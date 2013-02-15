@@ -93,7 +93,7 @@ div.tag3{
 	cursor: help;
 }
 small{
-	text-align: left;;
+	text-align: left;
 }
 ul{
 	list-style:square;
@@ -125,7 +125,7 @@ h2 span a{
 	color:#fff;
 	text-decoration:none;
 }
-div#drop-um,div#drop-dois,div#drop-tres,div#drop-quatro,div#drop-cinco,div#drop-seis{
+.faixa{
 	/*width:250px;*/
 	width: 16%;
 	height:800px;

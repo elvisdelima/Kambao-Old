@@ -1,8 +1,10 @@
-﻿using Kambao.Configuration;
-using Kambao.Models;
+﻿using Kambao.Data.Configuration;
+using Kambao.Core;
+using Kambao.Data;
 using NHibernate.Context;
 using NHibernate.Criterion;
 using NHibernate.Transform;
+using Restfulie.Server;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +13,24 @@ using System.Web.Mvc;
 
 namespace Kambao.Controllers
 {
+
+    [ActAsRestfulie]
+    public class TarefasController : CrudController<Tarefa>
+    {
+        public TarefasController()
+        {
+
+        }
+
+        public TarefasController(CrudData<Tarefa> data)
+            : base(data)
+        {
+        }
+    }
+
+
+
+    /*
     public class TarefasController : Controller
     {        
         public ActionResult Index()
@@ -35,11 +55,10 @@ namespace Kambao.Controllers
 
             tarefa.faixa = new Faixa();
             tarefa.faixa.Id = 1;
-            //tarefa.faixa.Id = 1;
-
+            
             session.Save(tarefa);
 
             return RedirectToAction("Index");
         }
-    }   
+    }   */
 }
