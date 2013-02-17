@@ -1,7 +1,5 @@
 ﻿using Castle.MicroKernel;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -25,11 +23,12 @@ namespace Kambao.Windsor
         protected override IController GetControllerInstance(RequestContext requestContext, Type controllerType)
         {
             if (controllerType == null)
+            {
                 throw new HttpException(404,
                                         string.Format("Controller para o caminho '{0}' não foi encontrado.",
                                                       requestContext.HttpContext.Request.Path));
-
-            return (IController)kernel.Resolve(controllerType);
+            }
+            return (IController)kernel.Resolve(controllerType);            
         }
     }
 }

@@ -21,11 +21,20 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.Descricao)
             @Html.ValidationMessageFor(model => model.Descricao)
-        </div>
+        </div>        
         <p>
-            <button type="submit" value="Create" class="btn btn-primary">Salvar</button>
-            <button value="Index" class="btn">Voltar</button>
+            <input type="submit" value="Salvar" />
+        
+            <!--
+            <a class="btn btn-primary" type="submit" href="/Tarefas/Create">Salvar</a>
+            <a class="btn" href="/Tarefas/Index">Voltar</a>
+                -->
+            <!--
+            <button type="submit" value="Tarefas/Create" class="btn btn-primary">Salvar</button>
+            <button value="Tarefas/Index" class="btn">Voltar</button>
+                -->
         </p>
     </fieldset>
+    
 }
 

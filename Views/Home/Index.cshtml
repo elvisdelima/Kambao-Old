@@ -6,6 +6,36 @@
 <div class="hero-unit">
 <h1>Bem vindo ao Kambao!</h1>
 <!--<p>Aqui você pode gerenciar as tarefas de sua equipe de maneira simples e eficiente.</p>-->
-<p>Algum subtítulo que tenha haver com o sistema. :)</p>
-<p><a class="btn btn-primary btn-large">Entrar</a></p>
+
+<p>Kambao Chat Beta :)</p>
+<input type="text" id="textInput" />
+<ul id="messages">
+
+</ul>
+
+<button id="buttonSubmit">Enviar</button>
+<!--<a id="buttonSubmit" class="btn btn-primary btn-large">Enviar</a>-->
 </div>
+
+<!-- SignalR Secret Sauce -->
+<script src="/signalr/hubs"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        // cache connection object
+        var messages = $.connection.messageHub;
+        // wire up writeMessage
+        messages.writeMessage = function (message) {
+            $("#messages").append("<li>" + message + "</li>");
+        };
+
+        //wire up button click event 
+        $("#buttonSubmit").click(function () {
+            debugger;
+            var text = $("textInput").val();
+            messages.sendMessage(text);
+        });
+
+        // start connection
+        $.connection.messageHub.start();
+    });
+</script>

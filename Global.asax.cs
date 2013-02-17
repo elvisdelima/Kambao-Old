@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Kambao.Windsor;
+using Microsoft.AspNet.SignalR;
 
 namespace Kambao
 {
@@ -30,7 +31,8 @@ namespace Kambao
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-    
+            // Register the default hubs route: ~/signalr
+            RouteTable.Routes.MapHubs();
         }
     }
 }
