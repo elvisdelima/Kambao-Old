@@ -1,21 +1,21 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
-using Kambao.Controllers;
+using Microsoft.AspNet.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 
 namespace Kambao.Windsor
 {
-    public class ControllersInstaller : IWindsorInstaller
+    public class HubInstaller
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(AllTypes.FromAssemblyContaining<TarefasController>()
-                    .BasedOn<Controller>()                    
+            container.Register(
+                AllTypes.FromAssembly(typeof(MvcApplication).Assembly)
+                    .BasedOn<Hub>()
                     .LifestyleTransient());
         }
     }

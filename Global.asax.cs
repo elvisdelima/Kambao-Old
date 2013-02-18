@@ -23,7 +23,7 @@ namespace Kambao
             container.Install(
                 new DataInstaller(),
                 new ControllersInstaller());
-
+             
             ControllerBuilder.Current.SetControllerFactory(new ControllerFactory(container.Kernel));
             AreaRegistration.RegisterAllAreas();
 
@@ -32,7 +32,10 @@ namespace Kambao
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             // Register the default hubs route: ~/signalr
-            RouteTable.Routes.MapHubs();
+            //create dependency resolver
+            var signalrDependency = new SignalrDependencyResolver(container.Kernel);
+            GlobalHost.DependencyResolver = signalrDependency;
+            RouteTable.Routes.MapHubs(); 
         }
     }
 }

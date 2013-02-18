@@ -169,6 +169,8 @@
     <Compile Include="Windsor\ControllerInstaller.cs" />
     <Compile Include="Windsor\DataInstaller.cs" />
     <Compile Include="Windsor\DefaultController.cs" />
+    <Compile Include="Windsor\HubInstaller.cs" />
+    <Compile Include="Windsor\SignalrDependencyResolver.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
