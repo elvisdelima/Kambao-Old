@@ -7,7 +7,6 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using Kambao.Windsor;
 using Microsoft.AspNet.SignalR;
 
 namespace Kambao
@@ -20,22 +19,16 @@ namespace Kambao
 
         protected void Application_Start()
         {
-            container.Install(
-                new DataInstaller(),
-                new ControllersInstaller());
-             
-            ControllerBuilder.Current.SetControllerFactory(new ControllerFactory(container.Kernel));
-            AreaRegistration.RegisterAllAreas();
 
+            RouteTable.Routes.MapHubs(); 
+            AreaRegistration.RegisterAllAreas();
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             // Register the default hubs route: ~/signalr
             //create dependency resolver
-            var signalrDependency = new SignalrDependencyResolver(container.Kernel);
-            GlobalHost.DependencyResolver = signalrDependency;
-            RouteTable.Routes.MapHubs(); 
+            
         }
     }
 }

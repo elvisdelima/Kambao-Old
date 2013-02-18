@@ -15,24 +15,8 @@ namespace Kambao.Controllers
 {
 
     [ActAsRestfulie]
-    public class TarefasController : CrudController<Tarefa>
-    {
-        public TarefasController()
-        {
-
-        }
-
-        public TarefasController(CrudData<Tarefa> data)
-            : base(data)
-        {
-        }
-    }
-
-
-
-    /*
     public class TarefasController : Controller
-    {        
+    {
         public ActionResult Index()
         {
             var session = SessionProvider.CurrentSession;
@@ -60,5 +44,5 @@ namespace Kambao.Controllers
 
             return RedirectToAction("Index");
         }
-    }   */
+    }   
 }

@@ -12,29 +12,17 @@ using System.Web.Mvc;
 namespace Kambao.Controllers
 {
     [ActAsRestfulie]
-    public class FaixasController : CrudController<Faixa>
+    public class FaixasController : Controller
     {
-        public FaixasController()
-        {
-
-        }
-
-        public FaixasController(CrudData<Faixa> data)
-            : base(data)
-        {
-        }
-    }
-
-        /*
         public ActionResult Index()
         {
             var session = SessionProvider.CurrentSession;
             var faixas = session.CreateCriteria<Faixa>()
                 .List<Faixa>();
-         
+
             return View(faixas);
         }
-        
+
         public ActionResult Create()
         {
             return View();
@@ -48,6 +36,6 @@ namespace Kambao.Controllers
 
             return RedirectToAction("Index");
         }
-         */
+    }
     
 }

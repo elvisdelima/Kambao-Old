@@ -155,7 +155,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="Controllers\CrudController.cs" />
     <Compile Include="Controllers\FaixasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QuadroController.cs" />
@@ -164,13 +163,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Hubs\MessageHub.cs" />
+    <Compile Include="Hubs\QuadroHub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionLifeCycle.cs" />
-    <Compile Include="Windsor\ControllerInstaller.cs" />
-    <Compile Include="Windsor\DataInstaller.cs" />
-    <Compile Include="Windsor\DefaultController.cs" />
-    <Compile Include="Windsor\HubInstaller.cs" />
-    <Compile Include="Windsor\SignalrDependencyResolver.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />

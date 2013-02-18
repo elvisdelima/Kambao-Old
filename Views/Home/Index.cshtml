@@ -17,6 +17,7 @@
 <!--<a id="buttonSubmit" class="btn btn-primary btn-large">Enviar</a>-->
 </div>
 
+<script src="~/Scripts/jquery.signalR-1.0.0-rc2.js"></script>    
 <!-- SignalR Secret Sauce -->
 <script src="/signalr/hubs"></script>
 <script type="text/javascript">
@@ -24,18 +25,18 @@
         // cache connection object
         var messages = $.connection.messageHub;
         // wire up writeMessage
-        messages.writeMessage = function (message) {
+        messages.client.writeMessage = function (message) {
             $("#messages").append("<li>" + message + "</li>");
         };
 
         //wire up button click event 
-        $("#buttonSubmit").click(function () {
-            debugger;
-            var text = $("textInput").val();
-            messages.sendMessage(text);
+        $("#buttonSubmit").click(function () {           
+            var text = $("#textInput").val();
+            messages.server.sendMessage(text);
         });
 
         // start connection
-        $.connection.messageHub.start();
+        $.connection.hub.start();
+
     });
 </script>
