@@ -16,6 +16,9 @@ $(function () {
             //salvaCookie();
         }
     });
+
+
+
     // maximizar boxes
     $('.lnk-maximizar').click(function () {
         var div = $(this).parent().parent().parent();

@@ -8,15 +8,33 @@ using Restfulie.Server;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+using System.Web.Script.Serialization;
+
 
 namespace Kambao.Controllers
 {
-
-    [ActAsRestfulie]
-    public class TarefasController : Controller
+     [ActAsRestfulie]
+    public class TarefasController : CrudController<Tarefa>
     {
+        public TarefasController()
+        {
+
+        }
+
+        public TarefasController(CrudData<Tarefa> data)
+            : base(data)
+        {
+            
+        }
+
+        public string ListAll() 
+        {
+            string json = new JavaScriptSerializer().Serialize(Data.List());
+            return json;
+        }
+    }
+}
+        /*
         public ActionResult Index()
         {
             var session = SessionProvider.CurrentSession;
@@ -43,6 +61,4 @@ namespace Kambao.Controllers
             session.Save(tarefa);
 
             return RedirectToAction("Index");
-        }
-    }   
-}
+        }*/

@@ -8,6 +8,7 @@ namespace Kambao.Hubs
 {
     public class QuadroHub : Hub
     {
-        public void MoverCartao()
+        public void MoverCartao() {
+        }
     }
 }

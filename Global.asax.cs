@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Microsoft.AspNet.SignalR;
+using Kambao.Windsor;
 
 namespace Kambao
 {
@@ -19,6 +20,11 @@ namespace Kambao
 
         protected void Application_Start()
         {
+            container.Install(
+                new DataInstaller(),                    
+                new ControllerInstaller());
+
+            ControllerBuilder.Current.SetControllerFactory(new ControllerFactory(container.Kernel));
 
             RouteTable.Routes.MapHubs(); 
             AreaRegistration.RegisterAllAreas();

@@ -3,7 +3,53 @@
 @{
     ViewBag.Title = "Quadro";
 }
-     
+
+@foreach (var faixa in Model.faixas)
+{
+    <div id="@faixa.Id" class="faixa" >
+        @faixa.Descricao 
+    </div>    
+}
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+           /* $.getJSON('Faixas/ListAll', function (data) {
+                var faixas = data;
+                $.each(faixas, function (index, faixa) {
+                    var container = document.getElementById('container');
+                    $(container).append("<div id=" + faixa.Id + " class='faixa' >" +
+                                               faixa.Descricao +
+                                          "</div>");
+                });
+            });*/
+
+            $.getJSON('Tarefas/ListAll', function (data) {
+                var tarefas = data;
+                $.each(tarefas, function (index, tarefa) {
+                    var faixa = document.getElementById(tarefa.faixa.Id);
+                    $(faixa).append("<div id="+tarefa.Id+" class='card solicitacao'>"+
+			                            "<h2>"+tarefa.Codigo+"</h2>"+		
+			                            "<p>"+tarefa.Descricao+"</p>"+
+		                            "</div>");
+                });            
+            });
+
+            $('#card').droppable({
+                over: function (event, ui) {
+
+                }
+            });
+
+            $('#card').bind("dropover", function (event, ui) {                
+                alert("dropou");
+            })
+
+        });
+    </script>
+}
+    
+@*  
 @foreach (var faixa in Model.faixas)
 {
     <div id="@faixa.Id" class="faixa" >
@@ -18,7 +64,7 @@
 			        <p>@tarefa.Descricao</p>
 		        </div>                 
             }
-        }
-          
+        }          
     </div>    
 }
+*@

@@ -8,34 +8,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace Kambao.Controllers
 {
     [ActAsRestfulie]
-    public class FaixasController : Controller
+    public class FaixasController : CrudController<Faixa>
     {
-        public ActionResult Index()
+        public FaixasController()
         {
-            var session = SessionProvider.CurrentSession;
-            var faixas = session.CreateCriteria<Faixa>()
-                .List<Faixa>();
 
-            return View(faixas);
         }
 
-        public ActionResult Create()
+        public FaixasController(CrudData<Faixa> data)
+            : base(data)
         {
-            return View();
+
         }
 
-        [HttpPost]
-        public ActionResult Create(Faixa faixa)
+        public string ListAll()
         {
-            var session = SessionProvider.CurrentSession;
-            session.Save(faixa);
-
-            return RedirectToAction("Index");
+            string json = new JavaScriptSerializer().Serialize(Data.List());
+            return json;
         }
-    }
-    
+    }        
 }
