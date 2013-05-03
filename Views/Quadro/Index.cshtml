@@ -9,7 +9,7 @@
 
 @section scripts {
     <script src="/Scripts/jquery.signalR-1.0.0-rc2.js"></script>
-     
+    <script src="/signalr/hubs"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $.getJSON('Faixas/ListAll', function (data, tarefas) {
@@ -32,44 +32,36 @@
                         //salvaCookie();
                     }
                 });
-            });
-                        
-            $.getJSON('Tarefas/ListAll', function (data) {
-                var tarefas = data;
-                $.each(tarefas, function (index, tarefa) {
-                    var faixa = document.getElementById("fx" + tarefa.faixa.Id);
-                    $(faixa).append("<div id="+tarefa.Id+" class='card solicitacao'>"+
-			                            "<h2>"+tarefa.Codigo+"</h2>"+		
-			                            "<p>"+tarefa.Descricao+"</p>"+
-		                            "</div>");
-                });            
-            });
+            }).done(function () {
+                $.getJSON('Tarefas/ListAll', function (data) {
+                    var tarefas = data;
+                    $.each(tarefas, function (index, tarefa) {
+                        var faixa = document.getElementById("fx" + tarefa.faixa.Id);
+                        $(faixa).append("<div id=" + tarefa.Id + " class='card solicitacao'>" +
+                                            "<h2>" + tarefa.Codigo + "</h2>" +
+                                            "<p>" + tarefa.Descricao + "</p>" +
+                                        "</div>");
+                    });
+                });
+            });                       
             
-            /*
             var quadro = $.connection.quadroHub;
-            // wire up writeMessage
-            quadro.client.alterarFaixaDoCartao = function (tarefa, faixa) {
-                //Remove o cartao da faixa antiga
-               
-                //Adiciona o cartao na nova faixa
-                var faixa = document.getElementById(faixa.Id);
-                $(faixa).append("<div id=cartao" + tarefa.Id + " class='card solicitacao'>" +
-                                    "<h2>" + tarefa.Codigo + "</h2>" +
-                                    "<p>" + tarefa.Descricao + "</p>" +
-                                "</div>");
-            };
-            */
-            //wire up button click event 
-            $("#buttonSubmit").click(function () {
-                var idTarefa = document.getElementById("1004");
-                var idFaixa  = document.getElementById("fx5");
-                $(idFaixa).append(idTarefa);
 
-                //quadro.server.moveCard(idTarefa, idFaixa);
+            quadro.client.alterarFaixaDoCartao = function (idTarefa, idFaixa) {
+                debugger;
+                var faixa = document.getElementById(idFaixa);
+                var tarefa = document.getElementById(idTarefa);
+                $(faixa).append(tarefa);
+            };
+            
+            $("#buttonSubmit").click(function () {
+                debugger;
+                var idTarefa = "1004";
+                var idFaixa = "fx5";
+                quadro.server.moveCard(idTarefa, idFaixa);
             });
 
-            // start connection
-            //$.connection.hub.start();
+            $.connection.hub.start();
         });
     </script>   
 }

@@ -18,25 +18,20 @@
 </div>
 
 <script src="~/Scripts/jquery.signalR-1.0.0-rc2.js"></script>    
-<!-- SignalR Secret Sauce -->
 <script src="/signalr/hubs"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        // cache connection object
         var messages = $.connection.messageHub;
-        // wire up writeMessage
+      
         messages.client.writeMessage = function (message) {
             $("#messages").append("<li>" + message + "</li>");
         };
 
-        //wire up button click event 
         $("#buttonSubmit").click(function () {           
             var text = $("#textInput").val();
             messages.server.sendMessage(text);
         });
 
-        // start connection
         $.connection.hub.start();
-
     });
 </script>
