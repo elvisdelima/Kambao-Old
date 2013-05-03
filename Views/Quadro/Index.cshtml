@@ -4,50 +4,55 @@
     ViewBag.Title = "Quadro";
 }
 
-<button id="buttonSubmit">Vai tartaruguinha!!!</button>
-<!--<a id="buttonSubmit" class="btn btn-primary btn-large">Enviar</a>-->
-</div>
-
-
-@foreach (var faixa in Model.faixas)
-{
-    <div id="@faixa.Id" class="faixa" >
-        @faixa.Descricao 
-    </div>    
-}
-
 @section scripts {
+    <script src="/Scripts/jquery.signalR-1.0.0-rc2.js"></script>
+     
     <script type="text/javascript">
         $(document).ready(function () {
-           /* $.getJSON('Faixas/ListAll', function (data) {
+            debugger;
+            $.getJSON('Faixas/ListAll', function (data, tarefas) {
                 var faixas = data;
+
                 $.each(faixas, function (index, faixa) {
                     var container = document.getElementById('container');
-                    $(container).append("<div id=" + faixa.Id + " class='faixa' >" +
-                                               faixa.Descricao +
-                                          "</div>");
+                    $(container).append("<div id=fx" + faixa.Id + " class='faixa'>"
+                                            + faixa.Descricao +
+                                        "</div>");
                 });
-            });*/
 
+                $(".faixa").sortable({
+                    connectWith: ['.faixa'],
+                    placeholder: 'dragHelper',
+                    scroll: true,
+                    revert: true,
+                    opacity: 0.40,
+                    stop: function (e, ui) {
+                        //salvaCookie();
+                    }
+                });
+            });
+                        
             $.getJSON('Tarefas/ListAll', function (data) {
                 var tarefas = data;
                 $.each(tarefas, function (index, tarefa) {
-                    var faixa = document.getElementById(tarefa.faixa.Id);
+                    debugger;
+                    var faixa = document.getElementById("fx" + tarefa.faixa.Id);
                     $(faixa).append("<div id="+tarefa.Id+" class='card solicitacao'>"+
 			                            "<h2>"+tarefa.Codigo+"</h2>"+		
 			                            "<p>"+tarefa.Descricao+"</p>"+
 		                            "</div>");
                 });            
             });
-                        
-            var quadro = $.connection.quadroHub;
+            
+            
+            /*var quadro = $.connection.quadroHub;
             // wire up writeMessage
             quadro.client.alterarFaixaDoCartao = function (tarefa, faixa) {
                 //Remove o cartao da faixa antiga
-
+               
                 //Adiciona o cartao na nova faixa
                 var faixa = document.getElementById(faixa.Id);
-                $(faixa).append("<div id=" + tarefa.Id + " class='card solicitacao'>" +
+                $(faixa).append("<div id=cartao" + tarefa.Id + " class='card solicitacao'>" +
                                     "<h2>" + tarefa.Codigo + "</h2>" +
                                     "<p>" + tarefa.Descricao + "</p>" +
                                 "</div>");
@@ -55,33 +60,14 @@
 
             //wire up button click event 
             $("#buttonSubmit").click(function () {
-                var tarefa = $("#textInput").val();
-                quadro.server.moveCard(text);
+                var idTarefa = document.getElementById(".cartao1");
+                var idFaixa  = document.getElementById(".fx5");
+                quadro.server.moveCard(idTarefa, idFaixa);
             });
 
             // start connection
-            $.connection.hub.start();
-            
+            $.connection.hub.start();*/            
         });
-    </script>
+    </script>   
 }
     
-@*  
-@foreach (var faixa in Model.faixas)
-{
-    <div id="@faixa.Id" class="faixa" >
-        @faixa.Descricao 
-
-        @foreach (var tarefa in Model.tarefas) 
-        {
-            if ((tarefa.faixa != null) && (tarefa.faixa.Id == faixa.Id)) 
-            {
-                <div id="@tarefa.Id" class="card solicitacao">
-			        <h2>@tarefa.Codigo</h2>		
-			        <p>@tarefa.Descricao</p>
-		        </div>                 
-            }
-        }          
-    </div>    
-}
-*@
