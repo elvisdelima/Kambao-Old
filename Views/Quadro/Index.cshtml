@@ -4,12 +4,14 @@
     ViewBag.Title = "Quadro";
 }
 
+<a id="buttonSubmit" class="btn btn-primary btn-large">Move</a>
+
+
 @section scripts {
     <script src="/Scripts/jquery.signalR-1.0.0-rc2.js"></script>
      
     <script type="text/javascript">
         $(document).ready(function () {
-            debugger;
             $.getJSON('Faixas/ListAll', function (data, tarefas) {
                 var faixas = data;
 
@@ -35,7 +37,6 @@
             $.getJSON('Tarefas/ListAll', function (data) {
                 var tarefas = data;
                 $.each(tarefas, function (index, tarefa) {
-                    debugger;
                     var faixa = document.getElementById("fx" + tarefa.faixa.Id);
                     $(faixa).append("<div id="+tarefa.Id+" class='card solicitacao'>"+
 			                            "<h2>"+tarefa.Codigo+"</h2>"+		
@@ -44,8 +45,8 @@
                 });            
             });
             
-            
-            /*var quadro = $.connection.quadroHub;
+            /*
+            var quadro = $.connection.quadroHub;
             // wire up writeMessage
             quadro.client.alterarFaixaDoCartao = function (tarefa, faixa) {
                 //Remove o cartao da faixa antiga
@@ -57,16 +58,18 @@
                                     "<p>" + tarefa.Descricao + "</p>" +
                                 "</div>");
             };
-
+            */
             //wire up button click event 
             $("#buttonSubmit").click(function () {
-                var idTarefa = document.getElementById(".cartao1");
-                var idFaixa  = document.getElementById(".fx5");
-                quadro.server.moveCard(idTarefa, idFaixa);
+                var idTarefa = document.getElementById("1004");
+                var idFaixa  = document.getElementById("fx5");
+                $(idFaixa).append(idTarefa);
+
+                //quadro.server.moveCard(idTarefa, idFaixa);
             });
 
             // start connection
-            $.connection.hub.start();*/            
+            //$.connection.hub.start();
         });
     </script>   
 }
