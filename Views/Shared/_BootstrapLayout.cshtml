@@ -26,26 +26,75 @@
     </head>
 
   <body>
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-static-top navbar-inverse" id="top">
       <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="/home">Kambao</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li><a href="/quadro">Quadro</a></li>
-              <li><a href="/faixas">Faixas</a></li>
-              <li><a href="/tarefas">Tarefas</a></li>
-              <li><a href="#contact">Gráficos</a></li>
-            </ul>       
-          </div><!--/.nav-collapse -->
+        <div class="container-fluid">
+          <a class="brand" href="/home"><i class=" icon-th-large icon-white"></i> Kambao</a>
         </div>
       </div>
-    </div>
+    </div>      
+    
+     <div class="navbar navbar-static-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button id="showHideMenu" class="btn btn-small btn-info"><i class="icon-hand-left icon-white"></i> 
+          </button>
+        </div>
+      </div>
+     </div>
+   
+
+<div id="sidebar" style="float:left">
+				<!--
+	<div id="sidebar-shortcuts">
+		<div id="sidebar-shortcuts-large">
+			<button class="btn btn-small btn-success"><i class="icon-signal"></i></button>
+			<button class="btn btn-small btn-info"><i class="icon-pencil"></i></button>
+			<button class="btn btn-small btn-warning"><i class="icon-lock"></i></button>
+			<button class="btn btn-small btn-danger"><i class="icon-question-sign"></i></button>
+		</div>
+	</div>-->
+	<ul class="nav nav-list">
+		<li>
+			<a href="/quadro">
+			<i class="icon-th"></i>
+			<span>Quadro</span>						
+			</a>
+		</li>
+
+		<li>
+			<a href="/faixas">
+			<i class="icon-pause"></i>
+			<span>Faixas</span>
+			</a>
+		</li>
+
+		<li>
+			<a href="/tarefas" >
+			<i class="icon-star"></i>
+			<span>Tarefas</span>
+			</a>			
+		</li>
+
+        <li>
+			<a href="/tarefas" >
+			<i class="icon-star"></i>
+			<span>Gráficos</span>
+			</a>			
+		</li>
+
+        <li>
+			<a href="/tarefas" >
+			<i class="icon-star"></i>
+			<span>Indicadores</span>
+			</a>			
+		</li>
+
+	</ul>
+</div>
+
+
+
 
     <div id="container" class="container">
 
@@ -58,6 +107,15 @@
     <!-- Placed at the end of the document so the pages load faster -->    
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/kambao.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+    
+            $('#showHideMenu').click(function () {                
+                $('#sidebar').toggle('slide', { direction: 'left' }, 'fast');
+            });
+        });
+     </script>
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

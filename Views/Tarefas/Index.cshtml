@@ -20,3 +20,32 @@
     </tr>
 }
 </table>
+
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Nova Faixa</h3>
+  </div>
+  <div class="modal-body">
+    <div id="form">
+    
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-large" data-dismiss="modal" aria-hidden="true">Voltar</button>
+    <button type="submit" class="btn btn-inverse btn-large">Salvar</button>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $.ajax({
+            url: "/Tarefas/Create",
+            success: function (data) {
+                $('#form').html(data).show();
+            }
+        });
+    });
+</script>

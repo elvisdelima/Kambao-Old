@@ -4,9 +4,6 @@
     ViewBag.Title = "Quadro";
 }
 
-<a id="buttonSubmit" class="btn btn-primary btn-large">Move</a>
-
-
 @section scripts {
     <script src="/Scripts/jquery.signalR-1.0.0-rc2.js"></script>
     <script src="/signalr/hubs"></script>
@@ -29,16 +26,25 @@
                     revert: true,
                     opacity: 0.40,
                     stop: function (e, ui) {
-                        //salvaCookie();
                     }
                 });
+                
+                $(".faixa").droppable({
+                    drop: function (event, ui) {
+                        debugger;
+                        var idTarefa = ui.draggable.context.id;
+                        var idFaixa = event.target.id;
+                        quadro.server.moveCard(idTarefa, idFaixa);
+                    }
+                });
+
             }).done(function () {
                 $.getJSON('Tarefas/ListAll', function (data) {
                     var tarefas = data;
                     $.each(tarefas, function (index, tarefa) {
                         var faixa = document.getElementById("fx" + tarefa.faixa.Id);
-                        $(faixa).append("<div id=" + tarefa.Id + " class='card solicitacao'>" +
-                                            "<h2>" + tarefa.Codigo + "</h2>" +
+                        $(faixa).append("<div id=" + tarefa.Id + " class='card'>" +
+                                            "<h2 class='label label-inverse'>" + tarefa.Codigo + "</h2>" +
                                             "<p>" + tarefa.Descricao + "</p>" +
                                         "</div>");
                     });
@@ -48,19 +54,12 @@
             var quadro = $.connection.quadroHub;
 
             quadro.client.alterarFaixaDoCartao = function (idTarefa, idFaixa) {
-                debugger;
                 var faixa = document.getElementById(idFaixa);
                 var tarefa = document.getElementById(idTarefa);
+                $(tarefa).effect("bounce", "slow");
                 $(faixa).append(tarefa);
             };
             
-            $("#buttonSubmit").click(function () {
-                debugger;
-                var idTarefa = "1004";
-                var idFaixa = "fx5";
-                quadro.server.moveCard(idTarefa, idFaixa);
-            });
-
             $.connection.hub.start();
         });
     </script>   

@@ -228,6 +228,7 @@
     <Content Include="Views\Tarefas\Create.cshtml" />
     <Content Include="Views\Faixas\Index.cshtml" />
     <Content Include="Views\Faixas\Create.cshtml" />
+    <Content Include="Views\Shared\_EmptyBootstrapLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
