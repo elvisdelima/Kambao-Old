@@ -1,4 +1,14 @@
-﻿/*
+﻿textarea{ 
+  width: 500px; 
+  min-width:500px; 
+  max-height:500px; 
+
+  height:150px; 
+  min-height:150px;  
+  max-height:150px;
+}
+
+/*
 .card {
     width: 230px;
     height: 200px;
